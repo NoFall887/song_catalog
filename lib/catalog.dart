@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:song_catalog/song_data.dart';
+import 'package:song_catalog/song_detail.dart';
 
 class SongCatalog extends StatelessWidget {
   const SongCatalog({Key? key}) : super(key: key);
@@ -19,10 +20,17 @@ class SongCatalog extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
       itemCount: SongsData.SongsList.length,
       itemBuilder: (BuildContext context, int index) {
-        final songsData = SongsData.SongsList[index];
+        final Map songsData = SongsData.SongsList[index];
         return Card(
           child: ListTile(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) => SongDetail(songData: songsData)),
+                ),
+              );
+            },
             leading: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

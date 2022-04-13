@@ -1,7 +1,6 @@
 class SongsData {
-  static Map getSong(String pengarang) {
-    return SongsList.where((element) => element["pengarang"] == pengarang)
-        .toList()[0];
+  static Map getSong(String judul) {
+    return SongsList.where((element) => element["judul"] == judul).toList()[0];
   }
 
   static final List SongsList = <Map>[
